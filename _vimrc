@@ -19,6 +19,8 @@ set number
 set hlsearch
 " 検索時に大文字小文字を区別しない
 set ignorecase
+" 検索時に大文字が入力された場合のみ大文字と小文字を区別する
+set smartcase
 
 " キーマッピング関係
 " コマンドラインモードの履歴呼び出し
@@ -33,3 +35,5 @@ nnoremap <silent> ]B :blast<CR>
 " アクティブなファイルが含まれているディレクトリを%%で展開する
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" 画面をクリアして再描画する際に、合わせて、ハイライトを無効化する
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
