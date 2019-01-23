@@ -37,3 +37,25 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " 画面をクリアして再描画する際に、合わせて、ハイライトを無効化する
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" OS別の設定
+if has("mac")
+    " mac用の設定
+    set backupdir=/tmp
+    set viminfo+=n/tmp/viminfo.txt
+    set undodir=/tmp
+elseif has("unix")
+    " unix固有の設定
+elseif has("win64")
+    " 64bit_windows固有の設定
+    set backupdir=%TEMP%
+    set viminfo+=n%TEMP%\viminfo.txt
+    set undodir=%TEMP%
+elseif has("win32unix")
+    " Cygwin固有の設定
+elseif has("win32")
+    " 32bit_windows固有の設定
+    set backupdir=%TEMP%
+    set viminfo+=n%TEMP%\viminfo.txt
+    set undodir=%TEMP%
+endif
