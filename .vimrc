@@ -3,9 +3,6 @@
 :set fileencodings=utf-8,cp932,euc-jp,sjis
 "すべての数を10進数として扱う
 set nrformats=
-" netrwプラグイン設定
-set nocompatible
-filetype plugin on
 
 " 表示関係
 " シンタックス設定
@@ -31,6 +28,11 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+
+" TABキーを押した際にタブ文字の代わりにスペースを入れる
+set expandtab
+set tabstop=4
+set shiftwidth=4
 
 " アクティブなファイルが含まれているディレクトリを%%で展開する
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
